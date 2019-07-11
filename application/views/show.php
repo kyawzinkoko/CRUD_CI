@@ -28,7 +28,7 @@
                         <td><?php echo $product -> quantity; ?></td>
                         <td><?php echo $product -> description; ?></td>
                         <td>
-                            <button class="btn btn-info" name="edit"><i class="far fa-edit"></i></button>
+                            <a href="<?php echo base_url('index.php/product/update'); ?>" class="btn btn-info"><i class="far fa-edit"></i></a>
                             <button class="btn btn-danger" name="delete"><i class="fas fa-trash-alt"></i></button>
                         </td>
                     </tr>

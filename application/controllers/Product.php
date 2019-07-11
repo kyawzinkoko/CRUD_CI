@@ -26,5 +26,24 @@ class Product extends CI_Controller
         $data['products'] = $products;
         $this->load->view('show',$data);
     }
+    public function update($id)
+    {
+        $this->load->model('Product_model');
+
+         if(isset($_POST ['update'])){
+
+            if ($this->Product_model->updateproduct($id))
+            {
+                $this->session->set_flashdata('success','Product Added Successfully');
+                redirect('product/update/'. $id,'refresh');
+            } else {
+                $this->session->set_flashdata('error','An Error occured.Please Tryagain');
+                redirect ('product/update/'. $id,'refresh');
+
+            }
+        }
+        $data['product'] = $this->Product_model->getProduct($id);
+        $this->load->view('update',$data);
+    }
 
 }
