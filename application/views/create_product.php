@@ -19,6 +19,10 @@
                    <input class="form-control" name="price" placeholder="Enter Product Price">
                 </div>
                 <div class="form-group">
+                    <label>Company Name</label>
+                    <input class="form-control" name="company_name" placeholder="Enter Product Quantity">
+                </div>
+                <div class="form-group">
                     <label>Quantity</label>
                     <input class="form-control" name="quantity" placeholder="Enter Product Quantity">
                 </div>

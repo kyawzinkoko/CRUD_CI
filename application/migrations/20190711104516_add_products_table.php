@@ -1,5 +1,5 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed');
-class Migration_Add_productc_table extends CI_Migration
+ <?php defined('BASEPATH') OR exit('No direct script access allowed');
+class Migration_Add_products_table extends CI_Migration
     {
 
         public function up()
@@ -21,6 +21,10 @@ class Migration_Add_productc_table extends CI_Migration
                             'type'           => 'VARCHAR',
                             'constraint'     => '255',
                         ),
+                        'company_name' => array(
+                            'type'           => 'VARCHAR',
+                            'constraint'     => '255',
+                        ),
 
                         'quantity' => array(
                             'type'           => 'INT',
@@ -31,14 +35,20 @@ class Migration_Add_productc_table extends CI_Migration
                             'type'           => 'TEXT',
                             'null'           => TRUE,
                         ),
+                        'date_created' =>array(
+                            'type'            => 'DATETIME',
+                        ),
+                        'date_updated'  =>array(
+                            'type'            => 'DATETIME',
+                        ),
             ));
 
                 $this->dbforge->add_key('id', TRUE);
-                $this->dbforge->create_table('productc');
+                $this->dbforge->create_table('products');
         }
 
         public function down()
         {
-                $this->dbforge->drop_table('productc');
+                $this->dbforge->drop_table('products');
         }
     }

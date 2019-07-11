@@ -10,14 +10,21 @@ class Product extends CI_Controller
             if ($this->Product_model->create_product())
             {
                 $this->session->set_flashdata('success','Product Added Successfully');
-                redirect('product/create','refresh');
+                redirect('product/show','refresh');
             } else {
                 $this->session->set_flashdata('error','An Error occured.Please Tryagain');
-                redirect ('product/create','refresh');
+                redirect ('product/show','refresh');
 
             }
         }
         $this->load->view('create_product');
+    }
+    public function show()
+    {
+        $this->load->model('Product_model');
+        $products = $this->Product_model->get_all_products();
+        $data['products'] = $products;
+        $this->load->view('show',$data);
     }
 
 }
